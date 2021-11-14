@@ -1,0 +1,26 @@
+<div class="d-flex" id="wrapper">
+  <div id="page-content-wrapper">
+    <div class="col-4">
+      <dx-date-box-custom [date]="appDate"></dx-date-box-custom>
+    </div>
+  </div>
+</div>
+
+<br><br>
+<div class="options">
+  <div class="option">
+    <label for="selectBox">Language</label>
+    <dx-select-box
+      id="selectBox"
+      [dataSource]="locales"
+      displayExpr="Name"
+      valueExpr="Value"
+      [value]="locale"
+      (onValueChanged)="changeLocale($event)"
+      [inputAttr]="{ id: 'selectInput' }"
+    >
+    </dx-select-box>
+  </div>
+</div>
+
+<!--{{appDate}}-->
