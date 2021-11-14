@@ -22,7 +22,7 @@ export class AppComponent {
 
   changeLocale(data: any) {
     this.setLocale(data.value);
-    window.location.href = window.location.href;
+    location.reload();
   }
 
   getLocale() {

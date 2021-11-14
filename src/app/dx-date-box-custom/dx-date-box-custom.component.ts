@@ -8,21 +8,16 @@ import {locale} from 'devextreme/localization';
       [(ngModel)]="date"
       (onKeyUp)="onKeyUp($event)"></dx-date-box>`
 })
-export class DxDateBoxCustomComponent{
+export class DxDateBoxCustomComponent {
   @Input() date: Date;
-  locale: string;
+  @Input() locale: string;
 
   constructor() {
-    locale('th-TH'); // Not necessary
-  }
-
-  getLocale() {
-    const locale = sessionStorage.getItem("locale");
-    return locale != null ? locale : "en";
+    locale(this.locale); // Not necessary
   }
 
   onKeyUp(event: any) {
-    if (this.getLocale() !== 'th') return;
+    if (this.locale !== 'th') return;
     const inputValue = event.event.currentTarget.value;
     if (/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(inputValue)) {
       const [d, m, y] = inputValue.split('/');
